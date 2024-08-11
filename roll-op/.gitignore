@@ -2,9 +2,7 @@
 
 # Forked repositories
 /optimism
-/op-geth
 /account-abstraction
-/blockscout
 /stackup-bundler
 
 # Dev Tooling
