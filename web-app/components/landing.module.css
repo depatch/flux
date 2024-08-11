@@ -1,0 +1,53 @@
+.landingTop {
+    padding: 0 5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.landingBottom {
+    flex: 0 0 300px;
+    background: url('/svgs/bottom_image.svg') repeat-x top left;
+    width: 100%;
+}
+
+.bigHeader {
+    font-size: 4rem;
+    font-weight: 500;
+    padding: 0;
+    margin: 0;
+}
+
+.smallHeader {
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 0;
+    margin: 0 0 2rem;
+}
+
+.smallHeader > strong {
+    color: #E6483D;
+    font-style: normal;
+}
+
+.button {
+    background: #14151A;
+    color: #FFFFFF;
+    border-radius: 32px;
+    padding: 8px 32px;
+    font-size: 16px;
+    font-style: normal;
+    cursor: pointer;
+    border: 1px solid #14151A;
+    transition: all 0.2s;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.16px;
+}
+
+.button:hover {
+    background: #FFF;
+    color: #14151A;
+}

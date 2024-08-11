@@ -1,0 +1,39 @@
+
+l2_chain_id = 1201101712
+
+## Devnet
+
+# (same as defaults)
+l1_chain_id = 1201101711
+l1_rpc_url = "http://127.0.0.1:8545"
+
+## For Goerli
+
+#l1_chain_id = 5
+
+#l1_rpc_url = "https://ethereum-goerli.publicnode.com"
+#l1_beacon_url = "https://ethereum-sepolia-beacon-api.publicnode.com"
+
+## Keys
+
+
+contract_deployer_account = "0xdbf291C4B342Ef41634e1dEf3B38282EFdfAac8d"
+contract_deployer_key = "0x73a1cdc055dfb0195ba9858befc8c399ba10c3c86a286ce9714e499c960f7429"
+
+
+batcher_account = "0x22E31d0Fb4b40806706363301de49c9cf4eDeA0e"
+batcher_key = "0x916137ad1dbc63df55f2fb8d0c8217d9d374deb0219a8819b1e4035c4c2ba95d"
+
+
+proposer_account = "0x9541D27065AAd7DF9f65b902140d82D84fc6c7B8"
+proposer_key = "0x043d4a7302ed1561cad0b68e5d48fc0b4c10a74dd1d0f4b8c6d8b8178ae65be8"
+
+
+admin_account = "0x50F975f6c87EB74c611E55922b424CFfa92Ce39C"
+admin_key = "0xcb3a36b0e95a6a3211115da1b2b1b682843f721798d05e1c81032c500eadbc10"
+
+
+p2p_sequencer_account = "0x5481B6a556987242d88eECc4bF0B4301ff75335e"
+p2p_sequencer_key = "0x085d4a1909736209c24f7138172bfd1aebccf6090399b97ef0932992a9a44dce"
+
+

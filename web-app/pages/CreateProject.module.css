@@ -1,0 +1,106 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.fileUpload {
+    margin-bottom: 20px;
+}
+
+.fileUpload button {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.fileUpload button img {
+    margin-right: 10px;
+}
+
+.inputGroup {
+    margin-bottom: 20px;
+}
+
+.inputGroup label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.dropZone {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.networkSelection {
+    margin-bottom: 20px;
+}
+
+.networkOptions {
+    display: flex;
+    gap: 10px;
+}
+
+.networkOptions button {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+}
+
+.networkOptions button.selected {
+    background-color: #e6f7ff;
+    border-color: #1890ff;
+}
+
+.networkOptions button img {
+    margin-right: 5px;
+}
+
+.switchGroup {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.switchGroup label {
+    margin-right: 10px;
+}
+
+.deployButton {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.submitButton {
+    background-color: #1890ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}

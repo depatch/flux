@@ -1,0 +1,27 @@
+.DS_Store
+
+# Forked repositories
+/optimism
+/op-geth
+/account-abstraction
+/blockscout
+/stackup-bundler
+
+# Dev Tooling
+__pycache__
+/.idea
+/.ruff_cache
+/venv
+
+# Build & runtime outputs
+/bin
+/deployments
+
+# Private configuration
+/.env
+/config.toml
+
+# Misc
+
+## jwt file path in optimism doc config
+jwt.txt

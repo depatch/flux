@@ -1,0 +1,128 @@
+.signUpCard {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 100%;
+    max-width: 24rem;
+    gap: 48px;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: stretch;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-inter);
+    font-style: normal;
+    font-weight: 450;
+    line-height: 32px; /* 133.333% */
+    letter-spacing: -0.336px;
+}
+
+.titleHighlight {
+    display: block;
+    margin-top: 0.25rem;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.progressContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 8px;
+}
+
+.progressBar {
+    flex-grow: 1;
+    height: 0.5rem;
+    background-color: #e5e7eb;
+    border-radius: 9999px;
+    overflow: hidden;
+    margin-right: 0.5rem;
+}
+
+.progressFill {
+    height: 100%;
+    background-color: #0B0C0E;
+    transition: width 0.3s ease;
+}
+
+.progressText {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.stepButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f3f4f6;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.stepButton.completed {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.stepButton:disabled {
+    cursor: default;
+}
+
+.checkIcon, .arrowIcon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.checkIcon {
+    color: #065f46;
+}
+
+.arrowIcon {
+    color: #6b7280;
+}
+
+.mintButton {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 360px;
+    margin-top: 1.5rem;
+    font-weight: 300;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.mintButton.disabled {
+    background-color: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.mintButton.active {
+    background-color: #0B0C0E;
+    color: white;
+}
+
+.stepButton img {
+    width: 24px;
+    height: 24px;
+}

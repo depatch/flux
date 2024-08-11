@@ -1,0 +1,30 @@
+{
+  "private": true,
+  "version": "1.0.0",
+  "description": "An example project for NextAuth.js with Next.js",
+  "repository": "https://github.com/nextauthjs/next-auth-example.git",
+  "bugs": {
+    "url": "https://github.com/nextauthjs/next-auth/issues"
+  },
+  "homepage": "https://next-auth-example.vercel.app",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@worldcoin/idkit": "1.3.0",
+    "ethers": "5.7.2",
+    "next": "14.2.5",
+    "next-auth": "4.24.7",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-icons": "5.2.1",
+    "thirdweb": "5.45.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.2.0",
+    "@types/react": "18.3.3",
+    "typescript": "5.5.4"
+  }
+}

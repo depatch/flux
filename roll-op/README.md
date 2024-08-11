@@ -1,0 +1,183 @@
+# roll-op
+
+Under development!
+
+This work is support by an
+[Optimism governance grant](https://app.charmverse.io/op-grants/proposals?id=a6e6bfb8-75bd-41bd-acb1-618c3c62e667).
+
+roll-op (formerly simple-op-stack-rollup) is an open-source script that makes it trivial for any
+developer to spin up an OP stack rollup, both for development and production use.
+
+The script enables you to configure and run your own rollup infrastructure by running only two or
+three commands. It uses a single well-documented configuration file.
+
+Additionally, the package supports spinning a block explorer (Blockscout), and EIP-4337 account
+abstraction infrastructure (a bundler and a paymaster).
+
+## Versioning
+
+The current version of simple-op-stack-rollup deploys software pinned to the following releases:
+
+- Optimism Monorepo: [`op-node/v1.3.1 `](https://github.com/ethereum-optimism/optimism/releases/tag/op-node%2Fv1.3.1) (+ [a few patches](setup.py))
+- op-geth: [`v1.101304.1`](https://github.com/ethereum-optimism/op-geth/releases/tag/v1.101304.1)
+
+## Prerequisites
+
+- Python >= 3.10 (to run the `roll.py` script) with pip
+  - `sudo apt install python3-pip` on Debian-based systems
+  - `brew install python` on macOS with Homebrew
+
+You also need the following installed, `rollop` will warn you if these are missing:
+
+- Some common command line utilities: `make`, `curl`, `tar`, `awk` and `grep`.
+- [`logrotate`](https://github.com/logrotate/logrotate)
+  - `sudo apt install logrotate` on Debian-based systems
+  - `brew install logrotate` on macOS with Homebrew
+- Git
+- Docker (if you wish to run the Blockscout block explorer)
+
+`rollop` will check the following dependencies and install them for you if needed (the script will
+always ask for your permission before installing anything outside the current directory):
+
+- Python libraries
+  - [Tomli](https://pypi.org/project/tomli/)
+  - [PyYAML](https://pypi.org/project/PyYAML/) (for block explorer support)
+  - These will be installed globally by default. To install them locally instead (in a venv within
+    the roll-op directory), you can run `source devenv.sh` before running `rollbop`.
+- Node.js 20.9.0
+- pnpm (`pnpm install -g pnpm`)
+- Yarn (for account abstraction support)
+  (`npm install -g yarn` — the old one, not yarn v3 aka yarn berry)
+- Geth >= 1.13.4 (but only if you want to run a devnet L1 node)
+- The `jq` command line utility
+- [Foundry](https://github.com/foundry-rs/foundry)
+- Go >= 1.21
+
+## Usage
+
+```
+usage: rollop [-h] [--name NAME] [--preset {dev,prod}] [--config CONFIG_PATH] [--clean] [--no-ansi-esc] [--yes] <command> ...
+
+Helps you spin up an op-stack rollup.
+Use `rollop <command> --help` to get more detailed help for a command.
+
+options:
+  -h, --help            show this help message and exit
+  --name NAME           name of the rollup deployment
+  --preset {dev,prod}   use a preset rollup configuration
+  --config CONFIG_PATH  path to the config file
+  --clean               clean command-related output before running the specified command
+  --no-ansi-esc         disable ANSI escape codes for terminal manipulation
+  --yes                 answer yes to all prompts (install all requested dependencies)
+
+commands:
+  <command>
+    
+    -- MAIN COMMANDS --
+
+    help                show this help message and exit
+    setup               installs prerequisites and builds the optimism repository
+    devnet              starts a local devnet, comprising an L1 node and all L2 components
+    clean               cleans up deployment outputs and databases
+    l2                  starts an L2 blockchain, deploying the contracts if needed
+    aa                  starts an ERC-4337 bundler and a paymaster signer service
+    explorer            starts a block explorer
+    
+    -- GRANULAR COMMANDS --
+
+    l1                  starts a local L1 node
+    deploy-l2           deploys but does not start an L2 chain
+    l2-engine           starts a local L2 execution engine (op-geth) node
+    l2-sequencer        starts a local L2 node (op-node) in sequencer mode
+    l2-batcher          starts a local L2 transaction batcher
+    l2-proposer         starts a local L2 output roots proposer
+    
+    -- CLEANUP --
+
+    clean-build         cleans up build outputs (but not deployment outputs)
+    clean-l2            cleans up L2 deployment outputs
+    clean-aa            cleans up deployment outputs for account abstraction
+    clean-explorer      deletes the block explorer databases, logs, and containers
+```
+
+You can also use the `roll.py` script directly as `./roll.py` or `python3 roll.py`  as an
+alternative. However `rollop` is recommended, as it will guarantee it is run from the rollop
+repository and can be symlinked if required.
+
+IMPORTANT: The block explorer is not currently scoped to deployments — so it can only run for a
+deployment at a time from a `roll-op` repository. When switching between deployments or even
+redeploying within the same deployment, you must clean the explorer with `rollop clean-explorer` or
+`rollop explorer --clean`.
+
+### Examples
+
+```bash
+./rollop setup
+./rollop setup --yes # auto-install all dependencies
+./rollop --clean devnet # default deployment name is "rollup"
+
+# equivalent with a different deployment name
+./rollop --clean --name=testing --preset=dev --config=config.toml devnet
+
+# to deploy & run on an existing L1 (after setting up a config.toml)
+./rollop --clean --name=my-prod-rollup --preset=prod --config=config.toml l2
+
+# resume previously create rollup (e.g. after killing previous command)
+./rollop --name=my-prod-rollup --preset=prod --config=config.toml l2
+
+# deploy rollup on existing L1, then start it later
+./rollop --name=my-prod-rollup --preset=prod --config=config.toml deploy-l2
+./rollop --name=my-prod-rollup --preset=prod --config=config.toml l2
+
+# start block explorer (blockscout) for a running rollup
+./rollop explorer --config=config.toml
+```
+
+In the dev preset, you can use the following cast command to generate a simple transfer transaction:
+```
+cast send \
+  --from 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 \
+  --private-key ac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 \
+  --rpc-url http://127.0.0.1:9545 \
+  --value 1ether \
+  0x3fAB184622Dc19b6109349B94811493BF2a45362
+```
+
+## Documentation
+
+See the [doc index](/docs/README.md).
+
+- [OP Stack Primer](/docs/opstack.md)
+- [Port Configuration](/docs/port-config.md)
+- [Vocabulary](/docs/vocabulary.md)
+- [Logging Policy](/docs/logging.md)
+
+
+## Contributing (for developers building simple-op-stack rollup)
+
+```bash
+# Enable dev environment and make sure dev dependencies are installed
+source devenv.sh
+
+# ... do stuff
+
+# Run lint & format checks
+make check
+
+# Fix issues highlighted by make check if possible (some lint issues might need manual fixes)
+make fix && make check
+```
+
+## Known Issues
+
+None at the moment.
+
+## Debugging
+
+If you have an issue with your network, please inspect the following files to find out about
+the actual configuration that the rollup runs with:
+
+- `deployments/NAME/logs/l1_commands.log`
+- `deployments/NAME/logs/l2_commands.log`
+- `deployments/NAME/artifacts/deploy-config.json`
+- `deployments/NAME/artifacts/rollup-config.json`
