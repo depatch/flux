@@ -23,7 +23,6 @@ export const authOptions: NextAuthOptions = {
       },
     },
     GithubProvider({
-      callbackUrl: process.env.GITHUB_CALLBACK_URL,
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
     }),
