@@ -17,23 +17,23 @@ l1_rpc_url = "http://127.0.0.1:8545"
 ## Keys
 
 
-contract_deployer_account = "0xdbf291C4B342Ef41634e1dEf3B38282EFdfAac8d"
-contract_deployer_key = "0x73a1cdc055dfb0195ba9858befc8c399ba10c3c86a286ce9714e499c960f7429"
+contract_deployer_account = "0x61c02Fa70DBA45753A45A82958d11629Bd1F04BD"
+contract_deployer_key = "0x357639dad0ed8bfb142bde804817f8ddc11fa849a97370a11a550843ba1727cb"
 
 
-batcher_account = "0x22E31d0Fb4b40806706363301de49c9cf4eDeA0e"
-batcher_key = "0x916137ad1dbc63df55f2fb8d0c8217d9d374deb0219a8819b1e4035c4c2ba95d"
+batcher_account = "0xdd8D9FcdB63c69E2Ab293549Dd92Bb0969b1cE27"
+batcher_key = "0x3c960da2d9ef77d295115804789fe36f332892664e3b2e390d01fd3d94e7ba15"
 
 
-proposer_account = "0x9541D27065AAd7DF9f65b902140d82D84fc6c7B8"
-proposer_key = "0x043d4a7302ed1561cad0b68e5d48fc0b4c10a74dd1d0f4b8c6d8b8178ae65be8"
+proposer_account = "0xc47fF8d685fb8fe9F76dbA2a58C3799e73aa3710"
+proposer_key = "0x0d859bbb7d08570537e1db8d964d5cab91dfb05b388829cf799c20c5850cada2"
 
 
-admin_account = "0x50F975f6c87EB74c611E55922b424CFfa92Ce39C"
-admin_key = "0xcb3a36b0e95a6a3211115da1b2b1b682843f721798d05e1c81032c500eadbc10"
+admin_account = "0x1fd461d35C457B46057DfA76527d0306812eD0E5"
+admin_key = "0x9ce3a49f3e7bf4878c3c129244e4e6ec6357ba46a82ec3db06f5240035795493"
 
 
-p2p_sequencer_account = "0x5481B6a556987242d88eECc4bF0B4301ff75335e"
-p2p_sequencer_key = "0x085d4a1909736209c24f7138172bfd1aebccf6090399b97ef0932992a9a44dce"
+p2p_sequencer_account = "0x69d9253E09C9bcf5252670428deD1af27d369CFf"
+p2p_sequencer_key = "0xa244119f22f078bd1bb27ef5c372ccda2388d5a1c30789770b7770133e70c0c3"
 
 
