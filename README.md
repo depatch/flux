@@ -18,25 +18,7 @@ https://fluxplorer.d3patch.com/
 
 A dynamic platform connecting developers and entrepreneurs! Verify World ID, link GitHub, earn NFTs, and unlock prizes. Entrepreneurs can deploy ERC-721 drops, invite teams, and approve contributions. Join, attest, and earn merit.
 
-Core components:
-1. World ID integration for user verification
-2. "Builder Passport" NFT as transaction prerequisite
-3. EAS contracts for attestation management
-4. Users' contribution tracking, first on GitHub repositories but expandable to other platforms through EAS schema registry
-5. On-chain merit system on the web app
-
-Participants:
-1. Developers: Contribute to projects, earn verifiable merits
-2. Entrepreneurs: Launch projects, approve contributions
-
-Key features:
-- Transparent, on-chain reputation building
-- Extensible framework for diverse contribution types
-- Project-specific EAS schemas
-
-
 ## Steps to complete the project:
-✅
 
 1. Deploy the Flux Network on the OP Stack chain through Conduit ✅
 2. Build a web app to mint the nft after connecting the World ID and GitHub account. ✅ 
@@ -107,3 +89,22 @@ Plan was to ForkOP Stack  and manipulate the eth_sendRawTransaction endpoint of 
 - ref: https://github.com/ethereum-optimism/op-geth/blob/8af19cf20261c0b62f98cc27da3a268f542822ee/eth/api_backend.go#L295-L320
 - currently following the https://github.com/celestiaorg/op-plasma-celestia/tree/main instructions to deploy the testnet L2 rollup chain
   - ./rollop --clean --name=flux-devnet --preset=dev --config=config.toml devnet
+
+Envisioned workflow
+
+Core components:
+1. World ID integration for user verification
+2. "Builder Passport" NFT as transaction prerequisite
+3. EAS contracts for attestation management
+4. Users' contribution tracking, first on GitHub repositories but expandable to other platforms through EAS schema registry
+5. On-chain merit system on the web app
+
+Participants:
+1. Developers: Contribute to projects, earn verifiable merits
+2. Entrepreneurs: Launch projects, approve contributions
+
+Key features:
+- Transparent, on-chain reputation building
+- Extensible framework for diverse contribution types
+- Project-specific EAS schemas
+
