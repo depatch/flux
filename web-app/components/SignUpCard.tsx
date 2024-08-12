@@ -76,7 +76,7 @@ const SignUpCard: React.FC = () => {
     console.log('Attempting Github login');
     setGithubStep({ ...githubStep, isLoading: true });
     try {
-      const result = await signIn('github', { callbackUrl: '/SignUpPage', redirect: false });
+      const result = await signIn('github', { callbackUrl: '/SignUpPage', redirect: true });
       console.log('Github login result:', result);
       if (result?.error) {
         console.error('Github login error:', result.error);
